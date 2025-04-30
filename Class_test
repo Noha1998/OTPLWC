@@ -1,0 +1,17 @@
+@isTest
+public class GenerateOTPTest {
+
+    @isTest
+    static void testGenerateOTP() {
+        // Call the generateOTP method
+        List<GenerateOTP.OTPResult> results = GenerateOTP.generateOTP();
+
+        // Assert that we have exactly one result
+        System.assertEquals(1, results.size(), 'Only one OTP result should be returned');
+
+        // Assert that the OTP is not null or empty
+        String generatedOTP = results[0].generatedOTP;
+        System.assertNotEquals(null, generatedOTP, 'OTP should not be null');
+        System.assert(generatedOTP.length() == 4, 'OTP should be a 4-digit string');
+    }
+}
