@@ -1,0 +1,42 @@
+public class GenerateOTP {
+    
+    @InvocableMethod
+    public static List<OTPResult> generateOTP() {
+        
+        String generatedOTP = generateOTPLogic();
+
+        // Create a result list
+        List<OTPResult> results = new List<OTPResult>();
+
+        // Create a result object and set the generated OTP
+        OTPResult result = new OTPResult();
+        result.generatedOTP = generatedOTP;
+
+        // Add the result to the list
+        results.add(result);
+        
+        //Commented till going live
+        
+     /*   List<Account> account = new List<Account>([SELECT Id, PersonMobilePhone, PersonEmail FROM Account where PersonEmail =: UserInfo.getUserName() LIMIT 1]);
+
+        if (account.size() > 0 && account[0].PersonMobilePhone != null)
+        {
+            MCMessagingUtils.sendSMS(account[0].PersonMobilePhone,true, generatedOTP , false);
+        } */
+
+        // Return the list of results
+        return results;
+    }
+    
+    public static String generateOTPLogic() {
+        
+        Integer otp = (Integer)Math.floor(Math.random() * 9000) + 1000;
+        return String.valueOf(otp);
+    }
+    
+     public class OTPResult {
+        @InvocableVariable
+        public String generatedOTP;
+    }
+    
+}
