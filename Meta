@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>One-Time Password</masterLabel>
+    <description>See the OTP code for a code stored in a record.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="value1" type="String" label="char1" role="outputOnly"></property>
+            <property name="value2" type="String" label="char2" role="outputOnly"></property>
+            <property name="value3" type="String" label="char3" role="outputOnly"></property>
+            <property name="value4" type="String" label="char4" role="outputOnly"></property>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
